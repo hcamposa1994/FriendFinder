@@ -13,7 +13,7 @@ var friendsArray = [
             5,
             4,
             1
-            ]    
+        ]    
     }
 ];
 
