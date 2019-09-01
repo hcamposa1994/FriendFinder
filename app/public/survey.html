@@ -195,17 +195,28 @@
     </footer>
     
     <script class="text/javascript">
-        $("#submit").on("click", function(event) {
+        $("#submit").on("click", event => {
 
             validateForm = () => {
                 let isValid = true;
+                $(".form-control").each( () => {
+                    if($(this).val() === "") {
+                        isValid = false;
+                    }
+                });
+                $(".chosen-select").each( () => {
+                    if($(this).val() === "") {
+                        isValid = false;
+                    }
+                });
+                return isValid;
             }
-            event.preventDefault();
 
-            var User = {
+            if(validateForm()) {
+                let User = {
                 name: $("#name").val(),
                 phtoto: $("#photo").val(),
-                scores:[
+                scores: [
                     $("#ques1").val(),
                     $("#ques2").val(),
                     $("#ques3").val(),
@@ -218,10 +229,12 @@
                     $("#ques10").val()
                 ]
             };
+            }
 
-            var currentURL = window.location.origin;
 
-            $.post(currentURL + "/api/friends", User, function(data) {
+            const currentURL = window.location.origin;
+
+            $.post(currentURL + "/api/friends", User, (data) => {
             console.log(User);
             console.log(data);
             $("#matchName").text(data.name);
