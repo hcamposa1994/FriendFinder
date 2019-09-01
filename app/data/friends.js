@@ -1,7 +1,7 @@
 const friendsArray = [
     {
         "name":"Ahmed",
-        "photo":"https://media.licdn.com/mpr/mpr/shrinknp_400_400/p/6/005/064/1bd/3435aa3.jpg",
+        "photo":"https://thumbs.dreamstime.com/z/profile-older-man-portrait-long-hair-78745727.jpg",
         "scores":[
            "5",
            "1",
@@ -17,7 +17,7 @@ const friendsArray = [
     },
     {
         "name":"Jared",
-        "photo":"https://media.licdn.com/mpr/mpr/shrinknp_400_400/p/6/005/064/1bd/3435aa3.jpg",
+        "photo":"https://thumbs.dreamstime.com/z/bald-man-profile-young-serious-expression-38109851.jpg",
         "scores":[
            "5",
            "5",
