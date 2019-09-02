@@ -20,11 +20,11 @@ module.exports = (app) => {
         // console.log(userScores);
 
         for (let i = 0; i < friendData.length; i++) {
-            console.log(friendData[i]);
+            // console.log(friendData[i]);
             let difference = 0;
             for (let j = 0; j < userScores.length; j++) {
                 difference += Math.abs(parseInt(friendData[i].scores[j]) - parseInt(userScores[j]));
-                console.log("difference of: " + i +" " + difference);
+                // console.log("difference of: " + i +" " + difference);
                 // console.log(parseInt(friendData[i].scores[j]))
                 // console.log(parseInt(userScores[j]));
             }

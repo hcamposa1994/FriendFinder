@@ -22,17 +22,17 @@
         </div>
 
         <h3>Please enter your information below <strong>(All fields are needed to be filled)</strong></h3>
-        <div class="input-group mb-3">
+        <from class="input-group mb-3">
             <div class="input-group-prepend">
                 <span class="input-group-text" id="basic-addon1">Name</span>
             </div>
-            <input type="text" class="form-control" aria-describedby="basic-addon1" id="name" required>
+            <input type="text" class="form-control" aria-describedby="basic-addon1" value="" id="name" required>
 
             <div class="input-group-prepend">
                 <span class="input-group-text" id="basic-addon1">Photo Link</span>
             </div>
-            <input type="text" class="form-control" aria-describedby="basic-addon1" id="photo" required>
-        </div>
+            <input type="text" class="form-control" aria-describedby="basic-addon1" value="" id="photo" required>
+        </from>
 
         <hr>
 
@@ -189,53 +189,55 @@
 
     <footer class="footer">
         <div class="container">
-            <p><a href="/api/friends">API Friends List</a> | <a href="https://github.com/hcamposa1994/FriendFinder">GitHub Repo</a></p>
+            <p><a href="/api/friends" target="_blank">API Friends List</a> | <a href="https://github.com/hcamposa1994/FriendFinder" target="_blank">GitHub Repo</a></p>
         </div>
     </footer>
 
     <script class="text/javascript">
         $("#submit").on("click", event => {
             event.preventDefault();
-            // validateForm = () => {
-            //     let isValid = true;
-            //     $(".form-control").each( () => {
-            //         if($(this).val() === undefined) {
-            //             isValid = false;
-            //         }
-            //     });
-            //     $(".chosen-select").each( () => {
-            //         if($(this).val() === undefined) {
-            //             isValid = false;
-            //         }
-            //     });
-            //     return isValid;
-            // }
-            let User = {
-                name: $("#name").val().trim(),
-                photo: $("#photo").val().trim(),
-                scores: [
-                    $("#ques1").val(),
-                    $("#ques2").val(),
-                    $("#ques3").val(),
-                    $("#ques4").val(),
-                    $("#ques5").val(),
-                    $("#ques6").val(),
-                    $("#ques7").val(),
-                    $("#ques8").val(),
-                    $("#ques9").val(),
-                    $("#ques10").val()
-                ]
+            validateForm = () => {
+                let isValid = true;
+                if( !$("#name").val() || !$("#photo").val() ) {
+                    isValid = false;
+                }
+                $(".chosen-select").each( (index, element) => {
+                    if(!$(element).val()) {
+                        isValid = false;
+                    }
+                    // console.log($(element).val())
+                });
+                return isValid;
             }
 
-            // console.log(JSON.stringify(User));
+            if(validateForm()) {
+                let User = {
+                    name: $("#name").val().trim(),
+                    photo: $("#photo").val().trim(),
+                    scores: [
+                        $("#ques1").val(),
+                        $("#ques2").val(),
+                        $("#ques3").val(),
+                        $("#ques4").val(),
+                        $("#ques5").val(),
+                        $("#ques6").val(),
+                        $("#ques7").val(),
+                        $("#ques8").val(),
+                        $("#ques9").val(),
+                        $("#ques10").val()
+                        ]
+                }
 
-            $.post("/api/friends", User, (data) => {
-            // console.log(User);
-            // console.log(data);
-            $("#matchName").html(data.name);
-            $("#matchPhoto").attr("src", data.photo);
-            $("#resultModal").modal('toggle');
-            });
+                // console.log(JSON.stringify(User));
+
+                $.post("/api/friends", User, (data) => {
+                // console.log(User);
+                // console.log(data);
+                $("#matchName").html(data.name);
+                $("#matchPhoto").attr("src", data.photo);
+                $("#resultModal").modal('toggle');
+                });
+            }
         });
     </script>
 </body>
