@@ -13,12 +13,3 @@ cd FriendFinder
 npm i
 node server.js
 ```
-###### Screenshots of the app in action
-`spotify-this-song`
-![alt text](./screenshots/spotify-this.PNG)
-`concert-this`
-![alt text](./screenshots/concert-this.PNG)
-`movie-this`
-![alt text](./screenshots/movie-this.PNG)
-`do-what-it-says`
-![alt text](./screenshots/do-what-it-says.PNG)
