@@ -7,6 +7,7 @@ The goal of this app is to use both NodeJs and Express to create a basic compati
 After the initial start up screen, you are presented with a survey that takes your name, a link to a profile picture, and ten questions where you may put a response from 1-5 based on the question. All fields need to be filled otherwise the app will disallow you to continue
 
 ### How to run this app
+A Heroku link is available ontop as well.
 First you'll be needing [node.js](https://nodejs.org/en/download/); aside from that all necessary packages are in the package.json so just run the following command:
 ```
 cd FriendFinder
